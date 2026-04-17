@@ -250,6 +250,9 @@ function exprType(expression: any, options: SparqlTypesOptions, boolVars: Set<st
   return 'Term'
 }
 
+/**
+ * Finds .rq files in the given directory and all subdirectories, ignoring commonly excluded ones like node_modules and .git. Returns an array of file paths.
+ */
 export function findRqFiles(dir: string): string[] {
   const files: string[] = []
   try {
@@ -350,6 +353,12 @@ export function generateDts(query: string, options: SparqlTypesOptions, parser: 
   return `/* eslint-disable @typescript-eslint/no-unused-vars */\n${rdfTypesImport}\n${localImport}\n\ninterface QueryResult {\n${body}\n}\n\ndeclare const _default: TypedQuery<Prettify<QueryResult>>\nexport default _default\n`
 }
 
+/**
+ * Processes a .rq file, generating a corresponding TypeScript declaration file.
+ * @param rqPath - The path to the .rq file.
+ * @param options - Options for SPARQL type generation.
+ * @param parser - The SPARQL parser instance.
+ */
 export function processRqFile(rqPath: string, options: SparqlTypesOptions, parser: Parser): void {
   let query: string
   try {
@@ -371,6 +380,9 @@ export function processRqFile(rqPath: string, options: SparqlTypesOptions, parse
   }
 }
 
+/**
+ * A helper type representing an RDF literal with a specific datatype IRI. This is used to provide more precise typings for variables that are known to be literals of a certain datatype, such as those narrowed via BOUND() or identified by user-defined function return types.
+ */
 export type LiteralWithDatatype<TDatatype extends string> = Literal & { datatype: NamedNode<TDatatype> }
 
 /**

@@ -4,6 +4,9 @@ import path from 'node:path'
 import type { Plugin } from 'vite'
 import { findRqFiles, processRqFile } from './index.ts'
 
+/**
+ * Options for the `sparqlTypes` Vite plugin, allowing users to customize the TypeScript types generated for SPARQL queries based on function return types and predicate-object patterns. This enables more precise typings for query results, improving type safety and developer experience when working with SPARQL queries in a TypeScript codebase.
+ */
 export interface SparqlTypesOptions {
   /**
    * Map from function IRI or prefixed name to its TypeScript return type string.
@@ -43,11 +46,17 @@ export interface SparqlTypesOptions {
   predicateObjectTypes?: Record<string, string>
 }
 
-export function sparqlTypes(options: SparqlTypesOptions = {}): Plugin {
+/**
+ * A Vite plugin that processes SPARQL query files (.rq) and generates corresponding TypeScript types.
+ * This allows for type-safe usage of SPARQL queries in a TypeScript codebase.
+ * @param options - Options for customizing the generated TypeScript types.
+ * @returns A Vite plugin instance.
+ */
+export function typedSparql(options: SparqlTypesOptions = {}): Plugin {
   const parser = new Parser()
 
   return {
-    name: 'sparql-types',
+    name: 'typed-sparql',
     enforce: 'pre',
 
     buildStart() {
