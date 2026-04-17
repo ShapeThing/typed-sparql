@@ -1,0 +1,1 @@
+SELECT (myns:transform(?s) AS ?result) WHERE { ?s ?p ?o }

@@ -1,0 +1,4 @@
+SELECT ?hasLabel WHERE {
+  ?s ?p ?o .
+  BIND(BOUND(?o) AS ?hasLabel)
+}

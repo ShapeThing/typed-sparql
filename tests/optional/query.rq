@@ -1,0 +1,4 @@
+SELECT ?s ?label WHERE {
+  ?s a <http://example.org/Thing> .
+  OPTIONAL { ?s <http://www.w3.org/2000/01/rdf-schema#label> ?label }
+}

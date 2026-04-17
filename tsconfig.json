@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "moduleResolution": "NodeNext",
+    "strict": true,
+    "paths": {
+      "@shapething/typed-sparql": ["./index.ts"]
+    }
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

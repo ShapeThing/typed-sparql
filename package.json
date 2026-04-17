@@ -1,0 +1,21 @@
+{
+  "name": "@shapething/typed-sparql",
+  "description": "",
+  "license": "GPL-3.0-only",
+  "author": "",
+  "type": "module",
+  "main": "index.ts",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@traqula/parser-sparql-1-2": "^1.0.7"
+  },
+  "devDependencies": {
+    "@rdfjs/types": "^2.0.1",
+    "vite": "^8.0.8",
+    "vite-tsconfig-paths": "^6.1.1",
+    "vitest": "^4.1.4"
+  }
+}
