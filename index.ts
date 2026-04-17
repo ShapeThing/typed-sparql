@@ -4,6 +4,23 @@ import path from 'node:path'
 import { SparqlTypesOptions } from './vite-plugin.ts'
 import type { Literal, NamedNode } from '@rdfjs/types'
 
+  /**
+   * This module provides a Vite plugin that generates TypeScript types for SPARQL SELECT queries defined in .rq files. By analyzing the structure of the SPARQL query and applying user-defined type rules, it produces precise typings for query results, enabling type-safe usage of SPARQL queries in a TypeScript codebase.
+   *
+   * @example
+   * ```ts
+   * import { typedSparql } from "@shapething/typed-sparql";
+   *
+   * const plugin = typedSparql({
+   *   functions: {
+   *     'sta:label': 'Literal',
+   *     'sta:icon':  'Literal',
+   *   },
+   * });
+   * ```
+   *
+   * @module
+   */
 
 const SPARQL_KEYWORDS = new Set([
   'SELECT', 'WHERE', 'FILTER', 'OPTIONAL', 'GRAPH', 'BIND', 'UNION', 'MINUS',
